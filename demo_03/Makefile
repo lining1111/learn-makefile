@@ -1,9 +1,13 @@
 .PHONY:all clean
 
+export BUILD_ROOT = $(shell pwd)
+
 all:
-	make -C a_dir
-	make -C b_dir
+	make -C src/a_dir
+	make -C src/b_dir
 	make -C app
 
 clean:
-	@echo "clean ..."
+	make -C src/a_dir clean
+	make -C src/b_dir clean
+	make -C app clean

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../a_dir/a.h"
-#include "../b_dir/b.h"
+#include "a.h"
+#include "b.h"
 
 using namespace std;
 
