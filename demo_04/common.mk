@@ -38,7 +38,7 @@ $(DLL):$(OBJS)
 	cp $@ $(BUILD_ROOT)/lib/$@
 
 $(LINK_OBJ_DIR)/%.o:%.cpp
-	$(CC) -I$(INC_DIR) -o $@ -c $^
+	$(CC) -I$(INC_DIR) $(PIC) -o $@ -c $^
 
 $(DEP_DIR)/%.d:%.cpp
 	$(CC) -I$(INC_DIR) -MM $(filter %.cpp,$^) | sed 's,\(.*\)\.o[ :]*,$(LINK_OBJ_DIR)/\1.o $@:,g' > $@
