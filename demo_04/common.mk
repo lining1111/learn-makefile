@@ -1,6 +1,6 @@
 .PHONY:all clean
 
-CC = g++ -g
+CC = g++
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(SRCS:.cpp=.d)
@@ -44,5 +44,4 @@ $(DEP_DIR)/%.d:%.cpp
 	$(CC) -I$(INC_DIR) -MM $(filter %.cpp,$^) | sed 's,\(.*\)\.o[ :]*,$(LINK_OBJ_DIR)/\1.o $@:,g' > $@
 
 clean:
-	@echo "$(INC_DIR)"
-	rm $(BIN) $(OBJS) $(DEPS)
+	rm -rf $(BIN) $(OBJS) $(DEPS)
